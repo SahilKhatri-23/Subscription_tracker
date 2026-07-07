@@ -34,12 +34,9 @@ A **RESTful Backend API** for securely managing recurring subscriptions with JWT
 - [Database Schema](#-database-schema)
 - [Error Response Format](#-error-response-format)
 - [Security Features](#-security-features)
-- [Future Improvements](#-future-improvements)
-- [Deployment](#-deployment)
 - [API Testing with Postman](#-api-testing-with-postman)
 - [Contributing](#-contributing)
 - [License](#-license)
-- [Author](#-author)
 
 ---
 
@@ -58,7 +55,7 @@ A **RESTful Backend API** for securely managing recurring subscriptions with JWT
 
 ## ✨ Features
 
-> **Note:** Email automation features (verification emails, reminders, notifications) are **planned for future releases**. See [Future Improvements](#-future-improvements) for the roadmap.
+> **Note:** Email automation features (verification emails, reminders, notifications) are planned for future releases.
 
 | Feature                     | Description                                             |
 | --------------------------- | ------------------------------------------------------- |
@@ -873,140 +870,6 @@ const validatePassword = (password) => {
 
 ---
 
-## 🚀 Future Improvements
-
-- [ ] **Email Verification** - Verify user email before account activation
-- [ ] **Two-Factor Authentication (2FA)** - SMS/TOTP-based 2FA
-- [ ] **Payment Gateway Integration** - Stripe/PayPal for automatic billing
-- [ ] **Subscription Reminders** - Email/SMS notifications before renewal
-- [ ] **Analytics Dashboard** - Monthly spending analytics
-- [ ] **Multi-Currency Support** - Real-time currency conversion
-- [ ] **Budget Alerts** - Notify users when spending exceeds limits
-- [ ] **Subscription Recommendations** - AI-based suggestions
-- [ ] **Mobile App Integration** - iOS/Android app support
-- [ ] **Export Features** - Export subscription data as CSV/PDF
-- [ ] **Shared Subscriptions** - Family/group subscription sharing
-- [ ] **API Rate Limiting Dashboard** - Visual rate limit monitoring
-- [ ] **Webhook Support** - Event-driven integrations
-- [ ] **Advanced Search & Filters** - Full-text search capabilities
-- [ ] **Audit Logs** - Track user actions and changes
-
----
-
-## 📦 Deployment
-
-### Option 1: Deploy to Heroku
-
-```bash
-# Install Heroku CLI
-npm install -g heroku
-
-# Login to Heroku
-heroku login
-
-# Create Heroku app
-heroku create your-app-name
-
-# Set environment variables
-heroku config:set JWT_SECRET=your_secret_key
-heroku config:set MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/db
-
-# Deploy
-git push heroku main
-```
-
-### Option 2: Deploy to AWS EC2
-
-```bash
-# 1. Launch EC2 instance (Ubuntu 20.04)
-# 2. Connect via SSH
-ssh -i your-key.pem ec2-user@your-instance-ip
-
-# 3. Install Node.js
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-nvm install 18
-
-# 4. Clone and setup project
-git clone https://github.com/yourusername/subscription-tracker.git
-cd subscription-tracker
-npm install
-
-# 5. Install PM2 for process management
-npm install -g pm2
-pm2 start app.js --name "subscription-tracker"
-pm2 startup
-pm2 save
-
-# 6. Configure Nginx as reverse proxy
-sudo apt install nginx
-# Configure /etc/nginx/sites-available/default
-sudo systemctl restart nginx
-```
-
-### Option 3: Deploy to Vercel (with serverless functions)
-
-```bash
-# Install Vercel CLI
-npm install -g vercel
-
-# Deploy
-vercel
-```
-
-### Option 4: Docker Deployment
-
-**Dockerfile:**
-
-```dockerfile
-FROM node:18-alpine
-
-WORKDIR /app
-
-COPY package*.json ./
-RUN npm install
-
-COPY . .
-
-EXPOSE 5000
-
-CMD ["npm", "start"]
-```
-
-**docker-compose.yml:**
-
-```yaml
-version: "3.8"
-
-services:
-  api:
-    build: .
-    ports:
-      - "5000:5000"
-    environment:
-      - NODE_ENV=production
-      - MONGODB_URI=mongodb://mongo:27017/subscription-tracker
-    depends_on:
-      - mongo
-
-  mongo:
-    image: mongo:6
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongo-data:/data/db
-
-volumes:
-  mongo-data:
-```
-
-**Deploy with Docker:**
-
-```bash
-docker-compose up -d
-```
-
----
-
 ## 🧪 API Testing with Postman
 
 ### Import Collection Steps:
@@ -1135,27 +998,9 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ---
 
-## 👨‍💻 Author
-
-**Your Name**
-
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
-- Portfolio: [yourportfolio.com](https://yourportfolio.com)
-
-### Connect With Me
-
-- 🐦 [Twitter](https://twitter.com/yourhandle)
-- 💼 [LinkedIn](https://linkedin.com/in/yourprofile)
-- 📧 [Email](mailto:your.email@example.com)
-
----
-
 <div align="center">
 
 ### ⭐ If you found this project helpful, please consider giving it a star!
-
-**Made with ❤️ by [Your Name]**
 
 [Back to Top](#-subscription-tracker-api)
 
